@@ -1,15 +1,27 @@
 body {
   margin: 0;
+}
+
+.banner {
   background-image: url("https://images.pexels.com/photos/185764/pexels-photo-185764.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
   background-size: cover;
+  background-position: 50% 50%;
+  margin-top: 0;
+  height: 30vh;
+  min-height: 120px;
+  padding: 5vh;
+  width: 100%;
+  color: #fff;
 }
 
 .container {
-  margin: 0 auto;
-  padding-top: 5vh;
+  margin: 3vh auto;
   text-align: center;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
+  margin: 15px auto;
+  padding: 5vh;
+  min-height: 66vh;
 }
 
 .container ul {
@@ -22,13 +34,18 @@ body {
 } 
 
 h2 {
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 p, h4, h5 {
   text-overflow: ellipsis;
 }
 
+td { 
+  border-bottom: 1px solid #fff; 
+  margin-bottom: 5px;
+}
+
 tr {
-  padding-bottom: 400px;
+  margin-bottom: 30px;
 }

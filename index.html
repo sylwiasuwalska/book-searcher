@@ -8,17 +8,18 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+	
+	<div class="banner form-inline formtoline">
+		<h1>Search for a book</h1>
+		<input class="form-control" id="book-name" type="text" placeholder="Write title here..." />
+		<button class="btn btn-light" id="search">Search a book</button>
+	</div>
 	<div class="container">
-		<div class="form-inline formtoline">
-			<input class="form-control" id="book-name" type="text" placeholder="Write title here..." />
-			<button class="btn btn-light" id="search">Search a book</button>
-		</div>
-
-		<table id="tableResult">
+		<h2>List of books:</h2>
+		<table id="tableResult" class="table">
             <tr>
             </tr>
         </table>
-
 	</div>
 	<script src="script.js"></script>
 </body>
