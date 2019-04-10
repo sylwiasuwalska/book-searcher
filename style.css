@@ -3,15 +3,21 @@ body {
 }
 
 .banner {
-  background-image: url("https://images.pexels.com/photos/185764/pexels-photo-185764.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+  background-image: url("https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-size: cover;
-  background-position: 50% 50%;
+  background-position: 70% 50%;
   margin-top: 0;
   height: 30vh;
-  min-height: 120px;
+  min-height: 150px;
   padding: 5vh;
   width: 100%;
   color: #fff;
+}
+
+.bckgrnd {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 0;
+  padding: 15px;
 }
 
 .container {
@@ -21,7 +27,7 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
   margin: 15px auto;
   padding: 5vh;
-  min-height: 66vh;
+  min-height: 60vh;
 }
 
 .container ul {
@@ -48,4 +54,8 @@ td {
 
 tr {
   margin-bottom: 30px;
+}
+
+img {
+  max-width: 128px;
 }
