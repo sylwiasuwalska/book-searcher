@@ -7,7 +7,8 @@ document.getElementById('search').addEventListener('click', searchBooks);
 
 function searchBooks() {
 	var bookName = document.getElementById('book-name').value;
-	var url = 	`https://www.googleapis.com/books/v1/volumes?q=intitle:${bookName}&printType=books`
+	//var url = 	`https://www.googleapis.com/books/v1/volumes?q=intitle:${bookName}&printType=books`
+	var url = 	`https://www.googleapis.com/books/v1/volumes?q=${bookName}`
 	fetch(url)
 		.then(function(resp) {
 			return resp.json();
@@ -26,7 +27,7 @@ function showBooksList(resp) {
 		var src = resp.items[ind].volumeInfo.imageLinks.thumbnail;
 		img.src = src;
 		if (src===undefined) {
-			src = `No image available.`
+			img.alt = `No image available.`
 		}
 
 		title.innerText = `${resp.items[ind].volumeInfo.title}`
