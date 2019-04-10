@@ -2,13 +2,11 @@ body {
   margin: 0;
   background-image: url("https://images.pexels.com/photos/185764/pexels-photo-185764.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
   background-size: cover;
-  background-position: 10% 10%;
 }
 
 .container {
   margin: 0 auto;
-  padding-top: 15vh;
-  height: 100vh;
+  padding-top: 5vh;
   text-align: center;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.5);
@@ -21,8 +19,16 @@ body {
 .formtoline {
   text-align: center;
   display: block;
+} 
+
+h2 {
+  margin: 20px;
 }
 
-p {
+p, h4, h5 {
   text-overflow: ellipsis;
+}
+
+tr {
+  padding-bottom: 400px;
 }

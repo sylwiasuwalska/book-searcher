@@ -1,14 +1,13 @@
 "use strict";
 
 
-var bookList = document.getElementById('books');
+var table = document.getElementById("tableResult");
 
 document.getElementById('search').addEventListener('click', searchBooks);
 
 function searchBooks() {
 	var bookName = document.getElementById('book-name').value;
-	//var url = 	`https://www.googleapis.com/books/v1/volumes?q=intitle:${bookName}&printType=books`
-	var url = 	`https://www.googleapis.com/books/v1/volumes?q=${bookName}`
+	var url = 	`https://www.googleapis.com/books/v1/volumes?q=intitle:${bookName}&printType=books&maxResults=40` //filtering by title and type
 	fetch(url)
 		.then(function(resp) {
 			return resp.json();
@@ -17,20 +16,24 @@ function searchBooks() {
 }
 
 function showBooksList(resp) {
-	console.log(resp);
-	bookList.innerHTML = '';
+	table.innerHTML = '';
 	Object.keys(resp.items).forEach(function (ind) {
-		var title = document.createElement('h4');
-		var img = document.createElement('img');
-		var desc = document.createElement('p');
+		var image = new Image();
 
-		var src = resp.items[ind].volumeInfo.imageLinks.thumbnail;
-		img.src = src;
-		if (src===undefined) {
-			img.alt = `No image available.`
+		if ((resp.items[ind].volumeInfo.imageLinks)===undefined) {
+			image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShwH8uCYyecy62M0QGsV83eOkaeMLeBoApCVrKyBPNSK03dlSc";
+		} else {
+			var src = resp.items[ind].volumeInfo.imageLinks.thumbnail;
+			image.src = src;
+			if (src===undefined) {
+				image.alt = `No image available.`;
+			}
 		}
+		console.log(image)
+		console.log(image.src)
 
-		title.innerText = `${resp.items[ind].volumeInfo.title}`
+		var title = `${resp.items[ind].volumeInfo.title}`;
+		var author = `${resp.items[ind].volumeInfo.authors}`;
 
 		var description = resp.items[ind].volumeInfo.description;
 
@@ -43,10 +46,15 @@ function showBooksList(resp) {
 		    description = description.substring(0,149)+"...";
 		}
 
-		desc.innerText = description;
-		
-	    bookList.appendChild(title);
-	    bookList.appendChild(img);
-	    bookList.appendChild(desc);
+		var summ = `<h4> ${title} </h4> <h5> ${author} </h5> <p> ${description} </p>`
+		var image = `<img src=${image.src}>`
+
+	    var row = table.insertRow();
+	    var img = row.insertCell(0);
+	    var desc = row.insertCell(1);
+
+	    img.insertAdjacentHTML('beforeend', image);
+	    desc.insertAdjacentHTML('beforeend', summ);
+
 	});
 }
