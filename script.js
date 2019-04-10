@@ -13,8 +13,8 @@ document.getElementById('search').addEventListener('click', function(){
 );
 
 input.addEventListener('keyup',function(e){
-	clearResults();
     if (e.keyCode === 13) {
+    clearResults();
     searchBooks(scrollCounter);
   }  
 });
