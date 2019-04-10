@@ -19,10 +19,33 @@ function showBooksList(resp) {
 	console.log(resp);
 	bookList.innerHTML = '';
 	Object.keys(resp.items).forEach(function (ind) {
-		var liElem = document.createElement('li');
-		
+		var title = document.createElement('h4');
+		var img = document.createElement('img');
+		var desc = document.createElement('p');
 
-	    liElem.innerText = `Title ${resp.items[ind].volumeInfo.title}, Description: ${resp.items[ind].volumeInfo.description} `;
-	    bookList.appendChild(liElem);
+		var src = resp.items[ind].volumeInfo.imageLinks.thumbnail;
+		img.src = src;
+		if (src===undefined) {
+			src = `No image available.`
+		}
+
+		title.innerText = `${resp.items[ind].volumeInfo.title}`
+
+		var description = resp.items[ind].volumeInfo.description;
+
+		// setting the default value in case of lack of description
+		if (description===undefined) {
+			description = `No description available.`
+		}
+		//cutting description to 150 characters
+		if  (description.length > 150) {
+		    description = description.substring(0,149)+"...";
+		}
+
+		desc.innerText = description;
+		
+	    bookList.appendChild(title);
+	    bookList.appendChild(img);
+	    bookList.appendChild(desc);
 	});
 }
